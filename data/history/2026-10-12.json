@@ -1,0 +1,307 @@
+{
+  "$schema": "../schemas/rankings.schema.json",
+  "note": "HUMAN-EDITABLE. This file is the single source of truth for the ranking. Each Monday, an AI proposes new scores (see scripts/weekly_rank.py + data/criteria.json); a human reviews, edits pros/cons, and commits. Every change is snapshotted to data/history/YYYY-MM-DD.json.",
+  "method": "Weekly AI scoring against data/criteria.json, then human review. Scores are 0-10 per dimension; total is the weighted sum (0-100).",
+  "updated": "2026-10-12",
+  "week": "2026-W42",
+  "weights": {
+    "coverage": 15,
+    "devEx": 15,
+    "governance": 10,
+    "priceTransparency": 10,
+    "reliability": 20,
+    "tokenSaving": 30
+  },
+  "rankings": [
+    {
+      "best_for": "Self-hosted teams that want full control and zero license fees",
+      "cons": [
+        "You operate it: Postgres + Redis for full spend tracking, plus upgrades and paging.",
+        "Python stack may add friction for Node.js-only shops.",
+        "Enterprise SSO and extras need a commercial license."
+      ],
+      "name": "LiteLLM",
+      "pricing": "Free, self-hosted (MIT core); enterprise quote",
+      "pros": [
+        "Unified OpenAI-compatible API across 100+ providers.",
+        "Virtual keys, per-team budgets, spend tracking, fallbacks, caching, guardrails.",
+        "Largest open-source community (58k+ stars); AWS multi-provider guidance is built on it."
+      ],
+      "rank": 1,
+      "scores": {
+        "coverage": 9,
+        "devEx": 8,
+        "governance": 8,
+        "priceTransparency": 9,
+        "reliability": 8,
+        "tokenSaving": 9
+      },
+      "self_host": true,
+      "tagline": "The open-source standard: one API for 100+ providers, free to run.",
+      "token_saving": "Self-hosted routing + caching with no platform fee; every dollar saved stays saved. Biggest lever for teams with steady traffic.",
+      "total": 8.55,
+      "url": "https://github.com/BerriAI/litellm"
+    },
+    {
+      "best_for": "Teams that must pass a security review before shipping AI",
+      "cons": [
+        "Now part of Palo Alto Prisma AIRS: evaluate platform direction, not the old startup.",
+        "Starts at $49/mo; serious governance tiers are custom-priced.",
+        "Semantic caching lives in hosted/enterprise editions."
+      ],
+      "name": "Portkey",
+      "pricing": "Free tier; from $49/mo; enterprise custom",
+      "pros": [
+        "1,600+ models with guardrails, RBAC, audit logs, prompt management, MCP gateway.",
+        "SOC 2 / HIPAA / GDPR posture with signed DPAs.",
+        "Open-source gateway core (MIT) plus managed cloud path."
+      ],
+      "rank": 2,
+      "scores": {
+        "coverage": 9,
+        "devEx": 7,
+        "governance": 10,
+        "priceTransparency": 7,
+        "reliability": 8,
+        "tokenSaving": 7
+      },
+      "self_host": true,
+      "tagline": "Governance-first gateway, now inside Palo Alto Networks.",
+      "token_saving": "Budgets, cost-based limits and semantic caching enforce savings as policy, not hope.",
+      "total": 7.8,
+      "url": "https://portkey.ai"
+    },
+    {
+      "best_for": "Prototyping and evaluating hundreds of models with one key",
+      "cons": [
+        "5.5% fee on credit top-ups compounds at scale ($550/mo on $10k spend).",
+        "No semantic caching or prompt management; observability is activity logs only.",
+        "No self-host option; traffic passes through a third party."
+      ],
+      "name": "OpenRouter",
+      "pricing": "Pass-through model prices + 5.5% credit fee; free models available",
+      "pros": [
+        "Widest managed catalog (300-500+ models) behind one endpoint.",
+        "Zero setup: change base URL and call any model; per-response usage.cost.",
+        "Free tier models for evaluation; BYOK escape hatch."
+      ],
+      "rank": 3,
+      "scores": {
+        "coverage": 10,
+        "devEx": 9,
+        "governance": 5,
+        "priceTransparency": 7,
+        "reliability": 8,
+        "tokenSaving": 7
+      },
+      "self_host": false,
+      "tagline": "One key, hundreds of models. The fastest way to compare.",
+      "token_saving": "Free models for eval; automatic provider failover avoids paid retries. Watch the top-up fee at production volume.",
+      "total": 7.75,
+      "url": "https://openrouter.ai"
+    },
+    {
+      "best_for": "Enterprises already running Kong for API management",
+      "cons": [
+        "Key AI plugins (semantic cache, advanced limits, MCP proxy) need Enterprise license.",
+        "Heavy if AI routing is the only reason to adopt Kong.",
+        "Entry pricing from ~$500/mo per control plane."
+      ],
+      "name": "Kong AI Gateway",
+      "pricing": "OSS core; Konnect managed; enterprise quote",
+      "pros": [
+        "AI controls inside an already-audited API control plane.",
+        "Semantic cache, cost/token limits, PII guards, MCP + agent-to-agent governance.",
+        "Self-hosted or managed Konnect."
+      ],
+      "rank": 4,
+      "scores": {
+        "coverage": 7,
+        "devEx": 6,
+        "governance": 9,
+        "priceTransparency": 6,
+        "reliability": 9,
+        "tokenSaving": 7
+      },
+      "self_host": true,
+      "tagline": "AI traffic governed where your APIs already live.",
+      "token_saving": "Cost-based rate limiting plus semantic cache caps spend per consumer and model.",
+      "total": 7.35,
+      "url": "https://konghq.com/products/kong-ai-gateway"
+    },
+    {
+      "best_for": "Teams already on Cloudflare Workers who want caching for free",
+      "cons": [
+        "No provider failover or budget enforcement: errors reach your app.",
+        "Smaller model catalog; prompts pass through Cloudflare infra.",
+        "Cost analytics are dashboard-only, not per-request metadata."
+      ],
+      "name": "Cloudflare AI Gateway",
+      "pricing": "Free tier; usage-based",
+      "pros": [
+        "Zero-infra edge gateway: change base URL, get logs + caching.",
+        "Mature identical-request and semantic caching at the edge.",
+        "No token markup; tight Workers/R2 integration."
+      ],
+      "rank": 5,
+      "scores": {
+        "coverage": 6,
+        "devEx": 8,
+        "governance": 6,
+        "priceTransparency": 8,
+        "reliability": 7,
+        "tokenSaving": 8
+      },
+      "self_host": false,
+      "tagline": "Free edge caching and observability for Cloudflare stacks.",
+      "token_saving": "Edge caching is the cheapest saving there is: a cache hit costs nothing and adds no infra.",
+      "total": 7.3,
+      "url": "https://developers.cloudflare.com/ai-gateway/"
+    },
+    {
+      "best_for": "High-RPS services where tail latency is the constraint",
+      "cons": [
+        "Narrower provider list than the big catalogs.",
+        "Self-hosted: you own uptime and upgrades.",
+        "Fewer governance extras out of the box."
+      ],
+      "name": "Bifrost",
+      "pricing": "Free, self-hosted (open source)",
+      "pros": [
+        "Go runtime with microsecond-level overhead; built for sustained throughput.",
+        "Drop-in OpenAI compatibility; no platform fees.",
+        "Small footprint next to Python-based proxies."
+      ],
+      "rank": 6,
+      "scores": {
+        "coverage": 6,
+        "devEx": 7,
+        "governance": 4,
+        "priceTransparency": 8,
+        "reliability": 9,
+        "tokenSaving": 7
+      },
+      "self_host": true,
+      "tagline": "Raw speed: a Go gateway for high-volume inference.",
+      "token_saving": "No fees plus fewer timeouts means fewer paid retries at scale.",
+      "total": 7.05,
+      "url": "https://github.com/maximhq/bifrost"
+    },
+    {
+      "best_for": "Next.js apps deployed on Vercel using the AI SDK",
+      "cons": [
+        "Convenience layer, not a control plane; off-Vercel it is awkward.",
+        "Budgets are soft caps and cover Vercel-billed spend only.",
+        "Platform concentration: hosting, framework and model access in one vendor."
+      ],
+      "name": "Vercel AI Gateway",
+      "pricing": "Pay-as-you-go, pass-through pricing",
+      "pros": [
+        "Native to the AI SDK; OpenAI + Anthropic SDK compatibility.",
+        "No markup, consolidated billing on an invoice you already pay.",
+        "Automatic fallback across providers with full routing-attempt logs."
+      ],
+      "rank": 7,
+      "scores": {
+        "coverage": 7,
+        "devEx": 9,
+        "governance": 5,
+        "priceTransparency": 8,
+        "reliability": 7,
+        "tokenSaving": 6
+      },
+      "self_host": false,
+      "tagline": "One endpoint for 100+ models, native to Vercel.",
+      "token_saving": "Pass-through pricing with zero fee; per-team budgets catch runaway keys early.",
+      "total": 6.9,
+      "url": "https://vercel.com/docs/ai-gateway"
+    },
+    {
+      "best_for": "Enterprises buying gateway + serving + evals as one platform",
+      "cons": [
+        "Platform buy-in: heavier than a standalone gateway.",
+        "Entry pricing opaque beyond the starter tier.",
+        "Overkill if you only need routing."
+      ],
+      "name": "TrueFoundry",
+      "pricing": "Free to 30k req/mo; platform quote",
+      "pros": [
+        "1,000+ models with latency-based routing, quotas, guardrails, MCP gateway.",
+        "SaaS, VPC, on-prem and air-gapped deployment.",
+        "Request-level observability tied to evals."
+      ],
+      "rank": 8,
+      "scores": {
+        "coverage": 8,
+        "devEx": 6,
+        "governance": 8,
+        "priceTransparency": 5,
+        "reliability": 8,
+        "tokenSaving": 6
+      },
+      "self_host": true,
+      "tagline": "Gateway plus serving plus evals, including air-gapped.",
+      "token_saving": "Token quotas plus latency routing keep spend inside policy on every workload.",
+      "total": 6.8,
+      "url": "https://www.truefoundry.com"
+    },
+    {
+      "best_for": "Teams that need to see exactly where every token went",
+      "cons": [
+        "BYOK only: it observes spend, it does not cut model prices.",
+        "Thin on routing/fallback vs full gateways; more logging proxy than router.",
+        "Cloud plans from $79/mo; teams tier higher."
+      ],
+      "name": "Helicone",
+      "pricing": "Free 100k req/mo; Pro from $79/mo",
+      "pros": [
+        "One-line integration with best-in-class per-request cost/latency logging.",
+        "Open-source core; cross-provider caching; health-aware fallback.",
+        "First step of every saving program: attribution before optimization."
+      ],
+      "rank": 9,
+      "scores": {
+        "coverage": 6,
+        "devEx": 8,
+        "governance": 6,
+        "priceTransparency": 8,
+        "reliability": 7,
+        "tokenSaving": 6
+      },
+      "self_host": true,
+      "tagline": "Observability first: one line to see all your token spend.",
+      "token_saving": "Finds the waste (Wednesday's 3x spike, the unused tool schema) so routing and caching have something to aim at.",
+      "total": 6.7,
+      "url": "https://helicone.ai"
+    },
+    {
+      "best_for": "EU teams wanting a wide catalog with per-token pricing",
+      "cons": [
+        "5% markup over provider prices; fee structure needs reading at volume.",
+        "No completed SOC 2 evidenced publicly; request the current report.",
+        "Smaller community than OpenRouter."
+      ],
+      "name": "Requesty",
+      "pricing": "Per-token with ~5% markup; BYOK available",
+      "pros": [
+        "700+ models with automatic cheapest-route selection.",
+        "EU data residency options; one key like OpenRouter.",
+        "BYOK escape hatch for production volume."
+      ],
+      "rank": 10,
+      "scores": {
+        "coverage": 8,
+        "devEx": 7,
+        "governance": 5,
+        "priceTransparency": 6,
+        "reliability": 7,
+        "tokenSaving": 6
+      },
+      "self_host": false,
+      "tagline": "Wide catalog with automatic cheapest-route selection.",
+      "token_saving": "Auto-routing to the cheapest provider for the same model is a direct per-token cut.",
+      "total": 6.55,
+      "url": "https://requesty.ai"
+    }
+  ]
+}

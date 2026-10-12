@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Top 10 AI Gateways for Developers — Ranked Weekly by AI</title>
+<meta name="description" content="The 10 best AI gateways for developers, ranked weekly by AI on token-saving power. Pros, cons, pricing, and a token-saving masterclass.">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="hero">
+  <p class="kicker">BY DEVELOPERS · RANKED WEEKLY BY AI · HUMAN-REVIEWED</p>
+  <h1>Top 10 AI Gateways</h1>
+  <p class="sub">One ranking, one lens: <strong>how much of your token bill survives.</strong><br>
+  Scores recomputed every Monday against open criteria — and every line stays human-editable.</p>
+  <p class="meta"><span id="week"></span> · <span id="updated"></span> · <a href="data/rankings.json">rankings.json</a> · <a href="data/criteria.json">criteria</a> · <a href="lecture/token-saving-masterclass.md">Token-Saving Masterclass</a></p>
+</header>
+
+<nav class="toc" aria-label="Contents">
+  <a href="#ranking">Ranking</a>
+  <a href="#method">Method</a>
+  <a href="#masterclass">Masterclass</a>
+  <a href="#history">History</a>
+  <a href="#contribute">Contribute</a>
+</nav>
+
+<main>
+  <section id="ranking">
+    <h2>The Ranking</h2>
+    <p class="hint">Desktop: sortable table. Mobile: cards. Tap a row to expand pros &amp; cons.</p>
+    <div class="table-wrap"><table id="board">
+      <thead><tr>
+        <th data-k="rank">#</th><th data-k="name">Gateway</th><th data-k="total">Score</th>
+        <th data-k="pricing">Pricing</th><th data-k="self_host">Self-host</th><th>Best for</th>
+      </tr></thead>
+      <tbody></tbody>
+    </table></div>
+    <div id="cards"></div>
+  </section>
+
+  <section id="method">
+    <h2>How the score works</h2>
+    <p>Weighted 0–100. <strong>Token saving counts 30</strong> — triple any other lens — because that is the point of this list.</p>
+    <ul id="weights"></ul>
+    <p class="fine">Rules: no sponsored placements · every weekly score change needs a one-line evidence note · unverifiable gateways keep last week's scores · human override always wins. Full text in <a href="data/criteria.json">criteria.json</a>.</p>
+  </section>
+
+  <section id="masterclass">
+    <h2>Token-Saving Masterclass <span class="badge">by a developer, for developers</span></h2>
+    <div id="lecture"><p>Loading the masterclass…</p></div>
+    <p><a class="btn" href="lecture/token-saving-masterclass.md">Read the full lecture →</a></p>
+  </section>
+
+  <section id="history">
+    <h2>Ranking history</h2>
+    <ul id="hist"></ul>
+  </section>
+
+  <section id="contribute">
+    <h2>Fix it yourself</h2>
+    <p>Everything is a text file. To correct a price, a pro, or a score:</p>
+    <ol>
+      <li>Edit <code>data/rankings.json</code> (schema-checked by CI).</li>
+      <li>Add a one-line reason; snapshot lands in <code>data/history/</code>.</li>
+      <li>Open a PR — or just file an issue and a human will.</li>
+    </ol>
+    <p class="fine">Weekly AI re-ranking runs every Monday via <code>scripts/weekly_rank.py</code> (proposal only — merges need human approval).</p>
+  </section>
+</main>
+
+<footer>
+  <p>Not financial advice. Prices change — verify before you ship. MIT licensed.</p>
+</footer>
+<script src="app.js"></script>
+</body>
+</html>
